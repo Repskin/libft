@@ -5,19 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:32:12 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:32:13 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:30:39 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:30:40 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	while (*s1 == *s2 && *s1)
+	int i;
+
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		s1++;
-		s2++;
+		if (s1[i] < s2[i] || s1[i] > s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	return (*(unsigned char*)s1 - *(unsigned char *)s2);
+	return (0);
 }

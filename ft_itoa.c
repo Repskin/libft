@@ -5,53 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:21:01 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:21:03 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:26:22 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:26:22 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_size(int n)
+static int		ft_nlen(int n)
 {
-	int i;
+	int len;
 
-	i = 0;
-	if (n < 0)
-		n *= -1;
-	while (n != 0)
+	len = 1;
+	while (n / 10)
 	{
 		n /= 10;
-		i++;
+		len++;
 	}
-	return (i);
+	return (len);
 }
 
-char		*ft_itoa(int num)
+static void		ft_swapchar(char *p1, char *p2)
 {
-	char		*dst;
-	int			count;
-	int			i;
-	long int	n;
+	*p1 ^= *p2;
+	*p2 ^= *p1;
+	*p1 ^= *p2;
+}
 
-	n = num;
-	count = count_size(n);
-	i = 0;
-	if (n < 0 || count == 0)
-		count++;
-	if (!(dst = ft_strnew(count)))
+static char		*ft_strrev(char *str)
+{
+	char *p1;
+	char *p2;
+
+	if (!str || !*str)
+		return (str);
+	p1 = str;
+	p2 = str + ft_strlen(str) - 1;
+	while (p2 > p1)
+		ft_swapchar(p1++, p2--);
+	return (str);
+}
+
+char			*ft_itoa(int n)
+{
+	char	*digits;
+	char	*result;
+	int		nlen;
+	int		i;
+
+	digits = ft_strdup("0123456789");
+	if (n == -2147483648 || n == 0)
+		return (n ? ft_strdup("-2147483648") : ft_strdup("0"));
+	nlen = ft_nlen(n);
+	result = n < 0 ? ft_strnew(nlen + 1) : ft_strnew(nlen);
+	if (!result)
 		return (NULL);
-	if (n < 0)
+	result[nlen] = n < 0 ? '-' : 0;
+	n = n < 0 ? -n : n;
+	i = result[0] == '-' ? 1 : 0;
+	while (n)
 	{
-		n *= -1;
-		dst[0] = '-';
+		result[i] = digits[n % 10];
+		n /= 10;
 		i++;
 	}
-	while (count > i)
-	{
-		count--;
-		dst[count] = (n % 10) + '0';
-		n /= 10;
-	}
-	return (dst);
+	result = ft_strrev(result);
+	return (result);
 }

@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:20:44 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:20:45 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:26:10 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:26:11 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isupper(int c)
+int	ft_isupper(int c)
 {
-	if (c >= 65 && c <= 90)
+	if ((c >= 65 && c <= 90))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:36:58 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:36:58 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:34:32 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:34:33 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	if (ft_islower(c))
-		return (c - 32);
-	else
-		return (c);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }

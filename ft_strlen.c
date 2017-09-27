@@ -5,22 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:33:31 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:33:32 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:32:01 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:32:02 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int i;
+	size_t length;
 
-	i = 0;
-	while (*str)
+	length = 0;
+	while (s[length])
 	{
-		i++;
-		str++;
+		length++;
 	}
-	return (i);
+	return (length);
 }

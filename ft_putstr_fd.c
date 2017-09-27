@@ -5,16 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:31:19 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/27 11:31:55 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:29:58 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:29:59 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putstr_fd(char const *s, int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	if (!s)
+	int i;
+
+	i = 0;
+	if (!s || !fd)
 		return ;
-	write(fd, s, ft_strlen(s));
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

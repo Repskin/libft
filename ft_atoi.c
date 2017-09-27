@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:19:18 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:19:20 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:24:13 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:24:17 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 int	ft_atoi(const char *str)
 {
-	int	is_neg;
-	int	number;
+	int		number;
+	int		signe;
+	int		i;
 
-	is_neg = 0;
 	number = 0;
-	while ((*str == ' ') || (*str == '\t') || (*str == '\n')
-		|| (*str == '\v') || (*str == '\f') || (*str == '\r'))
-		str++;
-	if (*str == 45)
-		is_neg = 1;
-	if ((*str == 45) || (*str == 43))
-		str++;
-	while ((*str >= 48) && (*str <= 57))
+	signe = 0;
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == 45)
+		signe = 1;
+	if (str[i] == 45 || str[i] == 43)
+		i++;
+	while (str[i] >= 48 && str[i] <= 57)
 	{
 		number *= 10;
-		number += ((int)*str - 48);
-		str++;
+		number += (int)(str[i] - 48);
+		i++;
 	}
-	if (is_neg)
+	if (signe)
 		return (-number);
 	else
 		return (number);

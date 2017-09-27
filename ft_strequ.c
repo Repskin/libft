@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:32:44 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/27 11:27:14 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:31:15 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:31:15 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 int	ft_strequ(char const *s1, char const *s2)
 {
+	int i;
+
+	i = 0;
 	if (!s1 || !s2)
 		return (0);
-	return ((ft_strcmp(s1, s2) ? 0 : 1));
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
+	}
+	return (1);
 }

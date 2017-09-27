@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:27:33 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:27:34 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:27:02 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:27:02 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	while (lst != NULL)
-	{
-		f(lst);
-		lst = lst->next;
-	}
+	if (!lst)
+		return ;
+	f(lst);
+	if (lst->next)
+		ft_lstiter(lst->next, f);
 }

@@ -5,32 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:36:27 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:36:28 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:34:01 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:34:02 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+char	*ft_strstr(const char *big, const char *little)
 {
-	char *ts1;
-	char *ts2;
+	int i;
+	int j;
+	int pos;
 
-	if (*s2 == '\0')
-		return ((char *)s1);
-	while (*s1)
+	i = 0;
+	j = 0;
+	if (little[0] == 0 || !little)
+		return ((char *)&big[0]);
+	while (big[i])
 	{
-		ts1 = (char *)s1;
-		ts2 = (char *)s2;
-		while (*ts2 && *ts1 == *ts2)
+		if (little[j] == big[i])
 		{
-			ts1++;
-			ts2++;
+			pos = i;
+			while (little[j++] == big[i++])
+			{
+				if (little[j] == 0)
+					return ((char *)&big[pos]);
+			}
+			i = pos + 1;
 		}
-		if (*ts2 == '\0')
-			return ((char *)s1);
-		s1++;
+		j = 0;
+		i++;
 	}
 	return (NULL);
 }

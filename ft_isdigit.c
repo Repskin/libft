@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:20:21 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:20:23 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:25:12 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:25:13 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);
-	else
-		return (0);
+	return (0);
 }

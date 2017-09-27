@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:36:37 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/27 11:28:50 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:34:09 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:34:09 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*str;
-	int		i;
+	char	*chaine;
+	size_t	i;
 
+	i = 0;
 	if (!s)
 		return (NULL);
-	i = 0;
-	if (!(str = ft_strnew(len)))
+	chaine = ft_strnew(len);
+	if (!chaine)
 		return (NULL);
-	while (s[start] != '\0' && len--)
+	while (i < len)
 	{
-		str[i] = s[start];
-		start++;
+		chaine[i] = s[start];
 		i++;
+		start++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (chaine);
 }

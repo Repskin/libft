@@ -5,17 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:32:58 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/27 11:20:43 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:31:24 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:31:25 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_striter(char *s, void (*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
-	if (!s)
+	int i;
+
+	i = 0;
+	if (!s || !f)
 		return ;
-	while (*s)
-		(*f)(s++);
+	while (s[i])
+	{
+		(f)(&s[i]);
+		i++;
+	}
 }

@@ -5,19 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:27:25 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:27:26 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:26:52 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:26:53 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	if (alst == NULL || *alst == NULL)
+	if (!alst || !*alst)
 		return ;
-	if (del != NULL)
-		del((*alst)->content, (*alst)->content_size);
+	del((*alst)->content, (*alst)->content_size);
 	free(*alst);
 	*alst = NULL;
 }

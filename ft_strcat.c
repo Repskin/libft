@@ -5,22 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:31:36 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:31:46 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:30:08 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:30:09 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	char *s1c;
+	int i;
+	int j;
 
-	s1c = s1;
-	while (*s1c != '\0')
-		s1c++;
-	while (*s2 != '\0')
-		*s1c++ = *s2++;
-	*s1c = '\0';
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j])
+		s1[i++] = s2[j++];
+	s1[i] = '\0';
 	return (s1);
 }

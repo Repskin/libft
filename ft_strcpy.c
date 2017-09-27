@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:32:22 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:32:23 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:30:48 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:30:49 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	char *s2;
+	int i;
 
-	s2 = dst;
-	while (*src != '\0')
-		*dst++ = *src++;
-	*dst = '\0';
-	return (s2);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

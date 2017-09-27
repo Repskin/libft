@@ -5,35 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:35:52 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:35:53 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:33:38 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:33:39 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(char *big, char *little, size_t len)
 {
-	char	*ts1;
-	char	*ts2;
 	size_t	i;
+	size_t	j;
+	size_t	pos;
 
 	i = 0;
-	if (*s2 == '\0')
-		return ((char *)s1);
-	while (*s1)
+	j = 0;
+	if (little[0] == 0 || !little)
+		return ((char *)&big[0]);
+	while (big[i] && i < len)
 	{
-		ts1 = (char *)s1;
-		ts2 = (char *)s2;
-		while (*ts2 && *ts1 == *ts2 && i < n)
+		if (little[j] == big[i] && i < len)
 		{
-			ts1++;
-			ts2++;
-			i++;
+			pos = i;
+			while (little[j] == big[i] && i < len && big[i++])
+			{
+				j++;
+			}
+			if (little[j] == 0)
+				return ((char *)&big[pos]);
+			i = pos + 1;
 		}
-		if (*ts2 == '\0')
-			return ((char *)s1);
-		s1++;
+		j = 0;
 		i++;
 	}
 	return (NULL);

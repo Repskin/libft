@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:33:42 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/27 11:22:05 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:32:21 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:32:22 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	*str;
-	size_t	i;
+	char			*map;
+	unsigned int	i;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
-	if (!(str = ft_strnew(ft_strlen(s))))
+	map = ft_strnew(ft_strlen(s));
+	if (!map)
 		return (NULL);
 	i = 0;
-	if (s && f)
+	while (s[i])
 	{
-		while (s[i] != '\0')
-		{
-			str[i] = f(s[i]);
-			i++;
-		}
+		map[i] = (f)(s[i]);
+		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (map);
 }

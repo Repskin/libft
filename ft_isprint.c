@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:20:37 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:20:38 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:25:31 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:25:32 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
 		return (1);
-	else
-		return (0);
+	return (0);
 }

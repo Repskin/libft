@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:28:53 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/27 11:19:06 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:28:18 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:28:19 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_memdel(void **ap)
+void	ft_memdel(void **ap)
 {
 	if (!ap)
 		return ;

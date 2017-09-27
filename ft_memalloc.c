@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:28:04 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:28:05 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:27:25 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:27:25 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memalloc(size_t size)
+void	*ft_memalloc(size_t size)
 {
-	void	*mem;
+	void *mem;
 
-	if (!(mem = malloc(size)))
-		return (NULL);
-	ft_bzero(mem, size);
+	mem = malloc(size);
+	if (mem != NULL)
+		ft_bzero(mem, size);
 	return (mem);
 }

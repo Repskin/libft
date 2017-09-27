@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:20:28 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:20:30 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:25:22 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:25:24 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_islower(int c)
+int	ft_islower(int c)
 {
-	if (c >= 97 && c <= 122)
+	if ((c >= 97 && c <= 122))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

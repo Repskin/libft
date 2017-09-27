@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tburnouf <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/26 18:20:02 by tburnouf          #+#    #+#             */
-/*   Updated: 2017/09/26 18:20:03 by tburnouf         ###   ########.fr       */
+/*   Created: 2017/09/27 14:24:51 by tburnouf          #+#    #+#             */
+/*   Updated: 2017/09/27 14:24:55 by tburnouf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	if (ft_islower(c) || ft_isupper(c))
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 		return (1);
-	else
-		return (0);
+	return (0);
 }
